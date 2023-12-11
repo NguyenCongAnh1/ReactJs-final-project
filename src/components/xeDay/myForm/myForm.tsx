@@ -1,7 +1,6 @@
 import "./myForm.scss";
 import right from "../checkoutImg/Right.png";
 import { SubmitHandler, useForm } from "react-hook-form";
-
 interface FormValues {
     name: string;
     cardNumber: string;
@@ -28,7 +27,7 @@ const MyForm = ({ total }: { total: number }) => {
                     {...register('name', { required: 'Card on name is required' })}
                     placeholder="Name"
                     className="custom-input with-placeholder-style"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%"}}
                     id="name"
                 />
                 {formState.errors.name && (

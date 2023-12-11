@@ -1,5 +1,5 @@
 import { Button, Col, Row } from "react-bootstrap";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Footer from "./footer";
 import { TiShoppingCart } from "react-icons/ti";
@@ -11,8 +11,10 @@ import { CartContext } from "../store/contextApi/cartContext";
 const Dashboard = () => {
     const cartContextInSearch = useContext(CartContext);
     const [searchInput, setSearchInput] = useState('');
+    const navigate = useNavigate();
     const handleSubmit = () => {
         cartContextInSearch?.search(searchInput);
+        navigate('/home')
     }
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(event.target.value);
