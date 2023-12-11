@@ -52,7 +52,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
             }
             return false;
         });
-        setSearchedCart(filteredMovies);
+        setSearchedCart(filteredMovies); 
     }
 
 

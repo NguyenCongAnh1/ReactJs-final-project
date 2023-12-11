@@ -17,10 +17,13 @@ const Home = () => {
                             <Cart movie={movie} />
                         </div>
                     ))}
+                    {contextInHome?.searchedCart.length === 0 && (
+                        <p style={{ color: 'red' }}>No movies found</p>
+                    )}
                 </div>
             </div>
         </>
     );
-};
+}
 export default Home;
 

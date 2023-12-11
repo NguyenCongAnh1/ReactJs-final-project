@@ -1,27 +1,94 @@
-# React + TypeScript + Vite
+# Cinemx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete React js movie application.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Made with ❤️ by [Anh Nguyen](https://github.com/NguyenCongAnh1)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Project Description
 
-- Configure the top-level `parserOptions` property like this:
+Cinemx contains all the functionalities that a movie website should have. Users can search for any movie and the site will filter results and display them on a beautiful screen. Also, users can show all the trending movies. Users can see popular, top-rated movies. Users can see a single movie's details by clicking on a specific movie. Bottom of the movie details page, the user can show related official videos. Anyone can see what is similar movies to the movie on the details page. Anyone can play the movie trailer. Users can add the movie to cart and checkout.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## What I used
+
+- [React](https://reactjs.org/)
+- [React Redux](https://redux.js.org/)
+- [The Movie Database API](https://www.themoviedb.org/)
+- [React icons](https://react-icons.github.io/react-icons/)
+- [Vite](https://vitejs.dev/)
+- More...
+
+## Requirements
+
+- Basic ReactJs knowledge
+- Basic HTML, SCSS knowledge
+
+## Getting Started
+
+Clone the Repository in master branch
+
+```shell
+git clone https://github.com/NguyenCongAnh1/ReactJs-final-project.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+After getting the starter files, you need to go the file directory and run
+
+1. Frontend
+
+```shell
+npm install
+npm run dev
+```
+
+2. Backend
+
+```shell
+cd .\crud-json\
+npm install
+npm run start:watch
+```
+
+## Tools Used
+
+Code Editor: [VS Code](https://code.visualstudio.com/)
+
+---
+
+## FAQ
+
+### Q: What are the prerequisites?
+
+basics of html, css, javascript and some basic knowledge of react is enough to start this project. Rest you will learn in the tutorial.
+
+### Q: Who the project is for?
+
+The project is for the people who wanna get more skilled in `ReactJs`.
+
+---
+
+# Features
+
+## View Movie List
+
+Explore our extensive collection of films and discover new releases.
+![Home](git-image\home.png)
+
+## Single movie detail
+You can click on the movie image you want to see details
+![10](git-image\detail.png)
+## Play trailer
+![11](git-image\playTrailer.png)
+
+## Search movie
+You can search by the fields on name, type, ratings and name of stars
+![15](git-image\Search.png)
+
+## Add to cart
+You can see add to cart button in the details page, click to add to cart
+## Cart
+Where information related to payment is displayed, you can increase, decrease or remove the corresponding items.
+![17](git-image\cart.png)
+

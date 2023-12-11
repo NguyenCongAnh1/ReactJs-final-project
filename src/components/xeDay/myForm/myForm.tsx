@@ -1,109 +1,131 @@
-import React, { useState } from 'react';
-import CustomInput from '../../customInput/customInput';
-import './myForm.scss'
-import right from '../checkoutImg/Right.png';
+import "./myForm.scss";
+import right from "../checkoutImg/Right.png";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface FormValues {
     name: string;
     cardNumber: string;
     exDay: string;
     cvv: string;
-
-    // Thêm các trường khác nếu cần
 }
 
-const MyForm  = ({total}: {total:number}) => {
-    const initialValues: FormValues = {
-        name: '',
-        cardNumber: '',
-        exDay: '',
-        cvv: ''
+const MyForm = ({ total }: { total: number }) => {
+    const { register, handleSubmit, formState } = useForm<FormValues>();
+
+    const onSubmit: SubmitHandler<FormValues> = async (dataForm) => {
+        console.log(dataForm);
+        window.alert("Checkout success!");
+
     };
 
-    const [formValues, setFormValues] = useState<FormValues>(initialValues);
-    const [hasError, setHasError] = useState(true);
-
-    const handleInputChange = (name: string) => (value: string) => {
-        setFormValues((prevValues) => ({
-            ...prevValues,
-            [name]: value,
-        }));
-    };
-    console.log(hasError);
-    
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log('Form submitted with values:', formValues);
-    };
-    const handleCheckoutClick = () => {
-        alert('Checkout clicked sucessfully');
-    }
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor={formValues.name} className='label-form'>Card on name</label>
-            <CustomInput
-                value={formValues.name}
-                onChange={handleInputChange('name')}
-                outInput={() =>  {setHasError(false)}}
-                placeholder="Name"
-                required={true}
-                width={'350px'}
-                data-testid="custom-input"
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <label htmlFor="name" className="label-form">
+                Card on name
+            </label>
+            <div>
+                <input
+                    {...register('name', { required: 'Card on name is required' })}
+                    placeholder="Name"
+                    className="custom-input with-placeholder-style"
+                    style={{ width: "100%" }}
+                    id="name"
+                />
+                {formState.errors.name && (
+                    <p className="error-message">{formState.errors.name.message}</p>
+                )}
+            </div>
 
-            />
-            <label htmlFor={formValues.cardNumber} className='label-form'>Card Number</label>
-            <CustomInput
-                value={formValues.cardNumber}
-                onChange={handleInputChange('cardNumber')}
-                outInput={() =>  {setHasError(false)}}
-                placeholder="1111 2222 3333 4444"
-                required={true}
-                width={'350px'}
-            />
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <label htmlFor="cardNumber" className="label-form">
+                Card Number
+            </label>
+            <div>
+                <input
+                    {...register('cardNumber', {
+                        required: 'Card number is required',
+                        pattern: {
+                            value: /^[0-9]+$/,
+                            message: 'Please enter only numbers for Card Number',
+                        },
+                    })}
+                    placeholder="1111 2222 3333 4444"
+                    className="custom-input with-placeholder-style"
+                    style={{ width: "100%" }}
+                    id="cardNumber"
+                />
+                {formState.errors.cardNumber && (
+                    <p className="error-message">{formState.errors.cardNumber.message}</p>
+                )}
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                    <label htmlFor="name" className='label-form'>Expiration date</label>
-                    <CustomInput
-                        value={formValues.exDay}
-                        outInput={() =>  {setHasError(false)}}
-                        onChange={handleInputChange('exDay')}
-                        placeholder="mm/yy"
-                        required={true}
-                        width={'170px'}
-                    />
+                    <label htmlFor="exDay" className="label-form">
+                        Expiration date
+                    </label>
+                    <div>
+                        <input
+                            {...register('exDay', { required: 'Expiration date is required' })}
+                            placeholder="mm/yy"
+                            className="custom-input with-placeholder-style"
+                            style={{ width: "170px" }}
+                            id="exDay"
+                        />
+                        {formState.errors.exDay && (
+                            <p className="error-message">{formState.errors.exDay.message}</p>
+                        )}
+                    </div>
+
                 </div>
 
-                <div>
-                    <label htmlFor="name" className='label-form'>CVV</label>
-                    <CustomInput
-                        value={formValues.cvv}
-                        outInput={() =>  {setHasError(false)}}
-                        onChange={handleInputChange('cvv')}
-                        placeholder="123"
-                        width={'170px'}
-                    />
+                <div style={{ marginLeft: "10px" }}>
+                    <label htmlFor="cvv" className="label-form">
+                        CVV
+                    </label>
+                    <div>
+                        <input
+                            {...register('cvv', { required: 'CVV date is required' })}
+                            placeholder="123"
+                            className="custom-input with-placeholder-style"
+                            style={{ width: "170px" }}
+                            id="cvv"
+                        />
+                        {formState.errors.cvv && (
+                            <p className="error-message">{formState.errors.cvv.message}</p>
+                        )}
+                    </div>
+
                 </div>
             </div>
-            <div className='border-form'></div>
+            <div className="border-form"></div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span className='subtext-form'>Subtotal</span>
-                <span className='subtext-form'>${total.toFixed(2)}</span>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span className="subtext-form">Subtotal</span>
+                <span className="subtext-form">${total.toFixed(2)}</span>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span className='subtext-form'>Shipping</span>
-                <span className='subtext-form'>${(total*0.1).toFixed(2)}</span>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span className="subtext-form">Shipping</span>
+                <span className="subtext-form">${(total * 0.1).toFixed(2)}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span className='subtext-form'>Total (Tax incl.)</span>
-                <span className='subtext-form'>${(total+ Number((total*0.1).toFixed(2))).toFixed(2)}</span>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span className="subtext-form">Total (Tax incl.)</span>
+                <span className="subtext-form">
+                    ${(total + Number((total * 0.1).toFixed(2))).toFixed(2)}
+                </span>
             </div>
-            <button className='button-form' onClick={handleCheckoutClick} disabled={hasError}>
-                <span className='total-price'>${(total+ Number((total*0.1).toFixed(2))).toFixed(2)}</span>
-                <div style={{alignItems: 'center'}}>
+            <button
+                className="button-form"
+                type="submit"
+                // disabled={!formState.isValid}
+                // style={{ cursor: !formState.isValid ? 'not-allowed' : 'pointer' }}
+            >
+                <span className="total-price">
+                    ${(total + Number((total * 0.1).toFixed(2))).toFixed(2)}
+                </span>
+                <div style={{ alignItems: "center" }}>
                     <span total-price>Check out </span>
-                    <img src={right}/>
+                    <img src={right} />
                 </div>
             </button>
         </form>
