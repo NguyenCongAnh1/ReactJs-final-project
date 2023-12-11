@@ -1,0 +1,47 @@
+.box {
+  margin-bottom: 24px;
+  color: #1e1e1e;
+  font-family: "Poppins-Medium", Helvetica;
+  line-height: normal;
+  max-width: 608px;
+  .rectangle {
+    border-radius: 15px;
+    box-shadow: 0px 1px 4px #00000040;
+    height: 100px;
+    width: 100%;
+    max-height: 100px;
+    max-width: 608px;
+    .image {
+      height: 82px;
+      width: 80px;
+      margin: 10px;
+    }
+    .text-block {
+      margin-left: 8px;
+
+      .sub-text {
+        font-family: "Nunito-Medium", Helvetica;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .movie-quantity{
+        color: #393939;
+        font-family: "Raleway-SemiBold", Helvetica;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 22px;
+        white-space: nowrap;
+        margin-top: 40px;
+        margin-left: 7vw;
+
+    }
+    .all-price{
+        color: #393939;
+        font-size: 14px;
+        font-weight: 500;
+        margin: auto 60px;
+    }
+  }
+}

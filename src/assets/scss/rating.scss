@@ -1,0 +1,31 @@
+@mixin starRating($rating) {
+    $fullStars: floor($rating);
+    $halfStars: if($rating - $fullStars >= 0.5, 1, 0);
+    $emptyStars: 5 - $fullStars - $halfStars;
+  
+    &::before {
+      content: '';
+      display: inline-block;
+      background: url('path-to-star-icon.png'); // Đường dẫn đến biểu tượng sao
+      width: 20px; // Chiều rộng của mỗi sao
+      height: 20px; // Chiều cao của mỗi sao
+    }
+  
+    &:nth-child(-n + #{$fullStars}) {
+      &::before {
+        background-position: 0 0; // Hiển thị sao đầy đủ
+      }
+    }
+  
+    &:nth-child(#{$fullStars + 1}) {
+      &::before {
+        background-position: 0 -20px; // Hiển thị sao bán chấp (nửa sao)
+      }
+    }
+  
+    &:nth-child(n + #{$fullStars + $halfStars + 1}) {
+      &::before {
+        background-position: 0 -40px; // Hiển thị sao trống
+      }
+    }
+  }

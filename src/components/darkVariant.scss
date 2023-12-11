@@ -1,0 +1,13 @@
+.custom-carousel {
+  margin: auto; // Center the carousel
+}
+
+.custom-image {
+    width: 100%; // Ensure the image takes up the full width of the container
+    object-fit: cover; // Resize the image while maintaining its aspect ratio
+  }
+.carousel-caption{
+    bottom: 7.25rem;
+    left: 10% !important;
+    text-align: left;
+} 

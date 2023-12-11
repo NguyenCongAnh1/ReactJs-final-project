@@ -1,0 +1,15 @@
+.home-body {
+  margin: auto;
+  .cart-block {
+    display: contents;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: columns;
+  }
+  .footer{
+    width: 100%;
+    margin: auto ;
+  }
+}

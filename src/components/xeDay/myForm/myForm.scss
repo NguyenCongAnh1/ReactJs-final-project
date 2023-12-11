@@ -1,0 +1,40 @@
+.label-form {
+  color: #fdfbfb;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.border-form {
+  height: 0px;
+  border: 1.5px #5f65c3 solid;
+  margin-top: 8px;
+  width: 100%;
+  margin-bottom: 14px;
+}
+.subtext-form {
+  color: #fdfbfb;
+  font-family: "Poppins-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.button-form {
+  margin-top: 20px;
+  background-color: #4de1c1;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  width: 100%;
+  color: #fdfbfb;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 18px 18px 24px;
+  font-family: "Poppins-Medium", Helvetica;
+  .total-price {
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
