@@ -74,7 +74,7 @@ The project is for the people who wanna get more skilled in `ReactJs`.
 ## View Movie List
 
 Explore our extensive collection of films and discover new releases.
-![Home](git-image\home.png)
+![Home](https://github.com/NguyenCongAnh1/ReactJs-final-project/blob/master/git-image/home.png)
 
 ## Single movie detail
 You can click on the movie image you want to see details
