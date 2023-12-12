@@ -23,7 +23,7 @@ const Dashboard = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid" style={{ marginLeft: '15vh' }}>
+                <div className="container-fluid" style={{ marginLeft: '10%' }}>
                     <button
                         className="navbar-toggler"
                         type="button"
